@@ -9,13 +9,14 @@ thread.join();
 ### 很多情况下，主线程main生成了子线程thread，子线程thread中可能涉及到大量的逻辑运算，耗时教久，因此主线程main会先于子线thread程结束，在主线程main可能用到子线程thread执行结果的情况下，使用thread.join()方法，让主线程在thread.join()方法后的代码，在等待子线程thread结束后再执行。
 
 ## 三.join方法的作用
-### 在JDk的API里对于join()方法是：
+#### 在JDk的API里对于join()方法是：
 ````
 join   
 public final void join() throws InterruptedException Waits for this thread to die. Throws: InterruptedException  - if any thread has interrupted the current thread. The interrupted status of the current thread is cleared when this exception
  is thrown
 ````
-## 即join()的作用是：“等待该线程终止”，这里需要理解的就是该线程是指的主线程等待子线程的终止。也就是在子线程调用了join()方法后面的代码，只有等到子线程结束了才能执行
+####即join()的作用是：“等待该线程终止”，这里需要理解的就是该线程是指的主线程等待子线程的终止。也就是在子线程调用了join()方法后面的代码，只有等到子线程结束了才能执行.
+####t.join()方法阻塞调用此方法的线程(calling thread)，直到线程t完成，此线程再继续；通常用于在main()主线程内，等待其它线程完成再结束main()主线程
 ## 四.join的实际使用
 ````
 public class ThreadA extends Thread {
@@ -162,4 +163,31 @@ main end ..
 1.主线程总是等待A线程结束后结束
 2.B线程总是等待A线程结束后结束
 ````
+## 五.源码分析
+````
+    public final synchronized void join(long millis)
+    throws InterruptedException {
+        long base = System.currentTimeMillis();
+        long now = 0;
 
+        if (millis < 0) {
+            throw new IllegalArgumentException("timeout value is negative");
+        }
+
+        if (millis == 0) {
+            while (isAlive()) {//判断当前线程是否处于活动状态
+                wait(0);
+            }
+        } else {
+            while (isAlive()) {
+                long delay = millis - now;
+                if (delay <= 0) {
+                    break;
+                }
+                wait(delay);
+                now = System.currentTimeMillis() - base;
+            }
+        }
+    }
+````
+从上面的源码可以看出，join()方法主要是通过wait()方法来实现的。
