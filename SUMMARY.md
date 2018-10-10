@@ -6,3 +6,5 @@
             * [Thread.join()详解](com.study/java/Thread/basic.method/join.md)
             * [Thread.isAlive()详解](com.study/java/Thread/basic.method/isAlive.md)
         * [线程同步](com.study/java/Thread/synchronization/synchronized01.md)
+* [spring基础知识](com.study/spring)       
+    * [参数验证](com.study/spring/validation.md)
