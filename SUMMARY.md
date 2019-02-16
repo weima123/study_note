@@ -8,3 +8,5 @@
         * [线程同步](com.study/java/Thread/synchronization/synchronized01.md)
 * [spring基础知识](com.study/spring)       
     * [参数验证](com.study/spring/validation.md)
+* [数据库](com.study/db)     
+    * [主从同步配置](com.study/db/mysql/master-slave/master-slave.md)  
