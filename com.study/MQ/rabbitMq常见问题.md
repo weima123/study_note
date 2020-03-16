@@ -67,7 +67,7 @@ https://www.jianshu.com/p/7af92d08ceca
 
 ```
 
-### 8.rabbitmq相关的一些问题
+### 8.rabbitmq常见问题
 #### 1.生产者推送消息到mq过程，如何保证消息推送成功？
 ```
 1）消息成功传到队列后，mq通过ack消息返回结果
