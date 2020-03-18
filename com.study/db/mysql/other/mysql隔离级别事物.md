@@ -111,3 +111,23 @@ mysql通过redoLog来保证一致性，在一个事物内操作数据的时候�
 mysql通过锁和MVCC来保证隔离性。
 https://blog.csdn.net/Macky_He/article/details/99407383
 ```
+
+## 七.mysql锁
+### 1.乐观锁
+```
+```
+
+### 2.悲观锁
+```
+session01:
+begin;
+select *** where id IN (X1) for update;
+commit;
+
+session02:
+begin;
+select *** where id IN (X1) for update;
+commit;
+session01 commit前会锁住id为X1的行,此时session02的查询会一直提示pending...
+
+```
