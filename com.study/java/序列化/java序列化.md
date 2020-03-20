@@ -14,7 +14,7 @@ Externalizable 可以手动实现序列化|反序列化的过程，更灵活
 ```
 
 ## 二.java不做序列化的处理方式
-1.transient --java关键字
+### 1.transient --java关键字
 ```
 属性前增加transient关键字
 public class User{
@@ -22,6 +22,7 @@ public class User{
 }
 userName将不会被序列化|反序列化
 ```
+### 2.被static修饰的属性不会做序列化
 
 ## 三.基于多态的序列化
 ### 1.如果父类实现了Serializable，子类没有实现Serializable，则子类自动实现序列化

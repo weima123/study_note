@@ -82,8 +82,17 @@ AOF浪费了部分redis性能，但是最大程度保证了redis数据不丢失
 
 ## 八.redis常用场景
 ### 1.缓存
-### 2.分布式锁
+### 2.分布式锁 redission
 ```
 setNx 、expire 、watch
 ```
 ### 3.消息中间件
+
+## 九.redission专题
+
+## 十.redis和memoryCache区别
+```
+1.redis是应用程序，需要单独部署
+2.redis使用的是操作系统分配的内存，不使用jvm的内存，memoryCache使用jvm的内存
+3.redis支持5种数据类型,memoryCache只支持字符串
+```
