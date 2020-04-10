@@ -102,7 +102,8 @@ eureka-server本身也支持注册，搭建集群的时候，只需要将eureka-
 
 ### 四.基于eureka的负载均衡
 ```
-Feign + Ribbon
+    feign和ribbon都是spring-cloud提供的用于负载均衡的模块;ribbon支持httpClient和restTemplate的调用方式;feign对ribbon做了二次封装,采用抽象接口的方式实现了垮服务的
+ 接口调用
 ```
 
 
