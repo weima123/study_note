@@ -47,3 +47,23 @@
 3.HashMap可以接收null值，HashTable不可以
 4.HashTable效率较HashMap低
 ```
+
+## 五.集合的线程安全
+#### 1.线程安全的集合
+```
+vector
+HashTable
+```
+#### 2.线程不安全集合变为线程安全集合的方法
+```
+Collections.synchronizedCollection()
+```
+
+#### 3.concurrent包
+```
+ConcurrentHashMap  线程安全，无序 ，map
+ConcurrentSkipListMap 线程安全，支持排序,map
+ConcurrentSkipListSet 线程安全，支持排序，set
+CopyOnWriteArrayList  线程安全的List,能在遍历过程中对List进行读|写的操作
+CopyOnWriteArraySet   线程安全的Set，能在遍历过程中对Set进行读|写的操作
+```
