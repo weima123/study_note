@@ -12,8 +12,6 @@ https://www.jianshu.com/p/7af92d08ceca
 1) 异步场景
 2）应用解耦
 3）流量削峰
-4）日志处理:elk
-5) 消息通讯:聊天室
 ```
 
 ### 3.rabbitMq基本概念
